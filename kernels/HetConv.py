@@ -50,8 +50,8 @@ class HetConv(nn.Module):
         """
         temp_filters = nn.ModuleList()
         # nn.Conv2d arguments: nn.Conv2d(input_channels, output_channels, kernel_size, stride, padding)
-        temp_filters.append(nn.Conv2d(self.input_channels//p, self.output_channels//p, 3, stride, 1))
-        temp_filters.append(nn.Conv2d(self.input_channels-self.input_channels//p, self.output_channels//p, 1, stride, 0))
+        temp_filters.append(nn.Conv2d(self.input_channels//p, self.output_channels//p, 3, stride, 1, bias=False))
+        temp_filters.append(nn.Conv2d(self.input_channels-self.input_channels//p, self.output_channels//p, 1, stride, 0, bias=False))
         return temp_filters
 
     def forward(self, input_data):
